@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>PVNet: Pixel-wise Voting Network for 6DoF Pose Estimation</title>
+  <title>Fast and Robust Multi-Person 3D Pose Estimation from Multiple Views</title>
 
   <style type="text/css">
     body {
@@ -140,37 +140,62 @@
         <!--Start Intro-->
 <div id="headerdiv">
   <h1>
-  PVNet: Pixel-wise Voting Network for 6DoF Pose Estimation
+  Fast and Robust Multi-Person 3D Pose Estimation <br>from Multiple Views
   </h1>
   <!-- <div class="nips"><a href="https://nips.cc/">NIPS 2018 (oral)</a></div> -->
 </div>
   <div id="maincontent">
   <div class="authors" style="margin-top: 10px">
-  <span class="author">Sida Peng<sup>*,1</sup></a></span>
-  <span class="author">Yuan Liu<sup>*,1</sup></a></span>
+  <span class="author">Junting Dong<sup>1</sup></a></span>
+  <span class="author">Wen Jiang<sup>1</sup></a></span>
   <span class="author">Qixing Huang<sup>2</sup></a></span>
   <span class="author">Hujun Bao<sup>1</sup></a></span>
   <span class="author">Xiaowei Zhou<sup>1</sup></a></span>
   </div>
 <div class="google" style="margin-top: 10px">1. State Key Lab of CAD & CG, ZheJiang University &nbsp;&nbsp;&nbsp;&nbsp; 2. Graphics & AI Lab, University of Texas at Austin</div>
-<div class="google" style="margin-top: 5px">* The first two authors contribute equally to this paper</div>
+
   
 <div class="flex-item flex-column">
+
+
+<div class="content-container" >
+    <div class="content">
+
+      <div class="content-table flex-column">
+        <!--End Intro-->
+
+        <div class="flex-item flex-item-stretch flex-column">
+          <video preload controls muted playsinline class="image">
+            <source src="./markerless-mocap.m4v" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
 
 
 <div class="content">
 <div class="content-table">
 <div class="flex-row">
+
 <div id="abstract">
-    <h2 class="abstract"> Abstract </h2>
-This paper addresses the challenge of 6DoF pose estimation from a single RGB image under severe occlusion or truncation. Many recent works have shown that a two-stage approach, which first detects keypoints and then solves a Perspective-n-Point (PnP) problem for pose estimation, achieves remarkable performance. However, most of these methods only localize a set of sparse keypoints by regressing their image coordinates or heatmaps, which are sensitive to occlusion and truncation. Instead, we introduce a Pixel-wise Voting Network (PVNet) to regress pixel-wise unit vectors pointing to the keypoints and use these vectors to vote for keypoint locations using RANSAC. This creates a flexible representation for localizing occluded or truncated keypoints. Another important feature of this representation is that it provides uncertainties of keypoint locations that can be further leveraged by the PnP solver. Experiments show that the proposed approach outperforms the state of the art on the LINEMOD, Occlusion LINEMOD and YCB-Video datasets by a large margin, while being efficient for real-time pose estimation. We further create a Truncation LINEMOD dataset to validate the robustness of our approach against truncation. 
-</div>
-    <div id="files" class="center" style="margin-top: 10px">
+    <h2 class="abstract" > Abstract </h2>
+<p style="text-align:justify">
+This paper addresses the problem of 3D pose estimation for multiple people in a few calibrated camera views. The main challenge of this problem is to find the cross-view correspondences among noisy and incomplete 2D pose predictions. Most previous methods address this challenge by directly reasoning in 3D using a pictorial structure model, which is inefficient due to the huge state space. We propose a fast and robust approach to solve this problem. Our key idea is to use a multi-way matching algorithm to cluster the detected 2D poses in all views. Each resulting cluster encodes 2D poses of the same person across different views and consistent correspondences across the keypoints, from which the 3D pose of each person can be effectively inferred. The proposed convex optimization based multi-way matching algorithm is efficient and robust against missing and false detections, without knowing the number of people in the scene. Moreover, we propose to combine geometric and appearance cues for cross-view matching. The proposed approach achieves significant performance gains from the state-of-the-art (96.3% vs. 90.6% and 96.9% vs. 88% on the Campus and Shelf datasets, respectively), while being efficient for real-time applications.  
+</p>
+    <div id="files" style="margin-top: 5px">
       [<a href="https://arxiv.org/pdf/1812.11788.pdf">Paper</a>]&nbsp;&nbsp;&nbsp;&nbsp;
-      [<a href="https://github.com/zju-3dv/pvnet">Code</a>]&nbsp;&nbsp;&nbsp;&nbsp;
-      [<a href="./model.html">Pretrained Model</a>]&nbsp;&nbsp;&nbsp;&nbsp;
-      [<a href="https://1drv.ms/u/s!AtZjYZ01QjphfuDICdni1IIM4SE">Truncation Dataset</a>]
+      [<a href="https://github.com/zju-3dv/multi-person3dpose">Code</a>]&nbsp;&nbsp;&nbsp;&nbsp;
+      [<a href="./supplymentary.html">Supplyment</a>]&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
+
+
+
   </div>
   </div>
   </div>
@@ -178,83 +203,7 @@ This paper addresses the challenge of 6DoF pose estimation from a single RGB ima
 
 
 
-  <div class="content-container">
-    <div class="content">
 
-      <div class="content-table flex-column">
-        <!--End Intro-->
-        <h2 class="add-top-margin">A Video for introduction</h2>
-        <div class="flex-item flex-item-stretch flex-column">
-          <video preload controls muted playsinline class="image">
-            <source src="./pvnet.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <!--Start Text with Images and Image buttons-->
-        <h2 class="add-top-margin">Deal with occlusion</h2>
-        <p class="text">
-        Visualizations of results on the Occlusion LINEMOD dataset. Green 3D bounding boxes represent the ground truth poses while blue 3D bounding boxes represent our predictions.
-        </p>
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-          </div>
-        </div>
-        <div class="gallery">
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/ape1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/ape2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/can1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/can2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/cat1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/cat2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/driller1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/driller2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/duck1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/duck2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/glue1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/glue2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/hole1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/hole2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/cat3.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="occlusion/cat4.png"></a>
-        </div>
-        <h2 class="add-top-margin">Deal with truncation</h2>
-        <p class="text">
-        Visualizations of results on the Occlusion LINEMOD dataset. Green 3D bounding boxes represent the ground truth poses while blue 3D bounding boxes represent our predictions.
-        </p>
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-          </div>
-        </div>
-        <div class="gallery">
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/ape1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/ape2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/can1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/can2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/cat1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/cat2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/driller1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/driller2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/duck1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/duck2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/glue1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/glue2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/hole1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/hole2.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/bench1.png"></a>
-          <a href="javascript:void(0)" class="flex-column" width=256 height=256><img src="truncation/bench2.png"></a>
-        </div>
-
-        <!--Start Text with Images and Videos-->
-        <h2 class="add-top-margin">Real-time demo</h2>
-        <div class="flex-item flex-item-stretch flex-column">
-          <video preload controls muted playsinline class="image">
-            <source src="./demo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
 </body>
 
 </html>
