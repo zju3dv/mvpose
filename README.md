@@ -102,6 +102,6 @@ If you find this code useful for your research, please use the following BibTeX 
 }
 ```
 ## Acknowledgements
-This code uses these code ([Light head rcnn](https://github.com/zengarden/light_head_rcnn), [Cascaded Pyramid Network](https://github.com/chenyilun95/tf-cpn), [CamStyle](https://github.com/zhunzhong07/CamStyle), ) as backbone. We gratefully appreciate the impact it had on our work. If you use our code, please consider citing the original paper as well.
+This code uses these code ([Light head rcnn](https://github.com/zengarden/light_head_rcnn), [Cascaded Pyramid Network](https://github.com/chenyilun95/tf-cpn), [CamStyle](https://github.com/zhunzhong07/CamStyle)) as backbone. We gratefully appreciate the impact it had on our work. If you use our code, please consider citing the original paper as well.
 
 
