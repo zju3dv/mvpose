@@ -20,13 +20,13 @@ pip install -r requirements.txt
 
  - Compile the `backend/tf_cpn/lib` and `backend/light_head_rcnn/lib`
 ```
-cd Multi-Pose/backend/tf_cpn/lib/
+cd mvpose/backend/tf_cpn/lib/
 make
 cd ./lib_kernel/lib_nms
 bash compile.sh
 ```
 ```
-cd Multi-Pose/backend/light_head_rcnn/lib/
+cd mvpose/backend/light_head_rcnn/lib/
 bash make.sh
 ```
 
@@ -34,21 +34,39 @@ bash make.sh
 
  - Compile the pictorial function for accelerate
 ```
-cd Multi-Pose/src/m_lib/
+cd mvpose/src/m_lib/
 python setup.py build_ext --inplace
 ```
 
 ## Prepare models and datasets
 
- -  Prepare models
+ -  **Prepare models**: 
 Please put [light-head-rcnn models](https://drive.google.com/file/d/1klpM_DEIn2Ln4ZN-xWHdvwp40dYpQ05b/view?usp=sharing) to `backend/light_head_rcnn/output/model_dump`, 
     [backend/tf_cpn/log/model_dump](https://drive.google.com/file/d/1DJF4p-SC_PokGtt7TbCVPgo-EWRQYhGi/view?usp=sharing) to `backend/tf_cpn/log/model_dump`,
     and [CamStyle model](https://drive.google.com/file/d/1FRAu6sr0Bd39ZliCscum69mwuZ1j502b/view?usp=sharing) trained by myself to `backend/CamStyle/logs`
 
- - Prepare the datasets
+ - **Prepare the datasets**: 
 Put datasets such as Shelf and CampusSeq1 to `./datasets/`
 Download [Campus](http://campar.cs.tum.edu/files/belagian/multihuman/CampusSeq1.tar.bz2) and [Shelf](http://campar.cs.tum.edu/files/belagian/multihuman/Shelf.tar.bz2) datasets. Then, put datasets such as Shelf and CampusSeq1 to datasets/
 
+ - **Generate the camera parameters**: 
+   Since each dataset uses different way to obtain the camera parameters, we show an example to deal with the Campus dataset: 
+   - Add following code to `.datasets/CampusSeq1/Calibration/producePmat.m`
+   ```
+   K = cell(1,3);
+   K{1} = K1; K{2} = K2; K{3} = K3;
+   m_RT = cell(1,3);
+   m_RT{1} = RT1; m_RT{2} = RT2; m_RT{3} = RT3;
+   save('intrinsic.mat','K');
+   save('m_RT.mat', 'm_RT');
+   save('P.mat', 'P');
+   save('prjectionMat','P');
+   ```
+   - generate the `camera_parameter.pickle`
+   ```
+   python ./src/tools/mat2pickle.py /parameter/dir ./datasets/CampusSeq1
+   ```
+   Here, we also provide the camera_parameter.pickle of [Campus](https://drive.google.com/file/d/1BvIyB53Jb_asZ2gEoIRh8gYUvHxPDcPA/view?usp=sharing) and [Shelf](https://drive.google.com/file/d/1mWe9CpyYrsU7t2FFf5PMJw5CqFE-3Otj/view?usp=sharing). You can generate the .pickle file for your datasets using the same way.
 ## Demo and Evaluate
 
 ### Run the demo
