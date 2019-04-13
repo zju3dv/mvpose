@@ -30,7 +30,7 @@ onboard==1.2.0
 padme==1.1.1
 pathlib==1.0.1
 pexpect==4.0.1
-Pillow==3.1.2
+Pillow>=3.3.2
 plainbox==0.25
 protobuf==3.5.2.post1
 ptyprocess==0.5
