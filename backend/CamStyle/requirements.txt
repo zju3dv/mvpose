@@ -71,7 +71,7 @@ unity-scope-tomboy==0.1
 unity-scope-virtualbox==0.1
 unity-scope-yelp==0.1
 unity-scope-zotero==0.1
-urllib3==1.13.1
+urllib3>=1.23
 usb-creator==0.3.0
 virtualenv==15.2.0
 Werkzeug==0.14.1
