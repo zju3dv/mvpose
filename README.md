@@ -32,7 +32,7 @@ bash make.sh
 
  Since they use py-faster-rcnn as backbone. Many people using faster-rcnn meet with some problems when compiling those components. Suggestions on google can be helpful.
 
- - Compile the pictorial function for accelerate
+ - Compile the pictorial function for acceleration
 ```
 cd mvpose/src/m_lib/
 python setup.py build_ext --inplace
@@ -76,7 +76,7 @@ python ./src/m_utils/demo.py -d Campus
 python ./src/m_utils/demo.py -d Shelf
 ```
 
-If all the configuration is OK, you may see the visuluization of following items.
+If all the configuration is OK, you may see the visualization of following items.
 
 ![matching](./assets/result.png)
 
@@ -90,7 +90,7 @@ python ./src/m_utils/evaluate.py -d Shelf
 ```
 As long as the progress bar finished, you may see a beautified table of evaluation result and a csv file for the evaluation result will be save in `./result` directory.
 
-### Accelerate for the evaluation
+### Accelerate the evaluation
 
 Since the 2D pose estimator (CPN) is a little slow, we can save the predicted 2D poses and heatmaps and then start with these saved files.
 
