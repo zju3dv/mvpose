@@ -74,7 +74,7 @@ unity-scope-zotero==0.1
 urllib3>=1.23
 usb-creator==0.3.0
 virtualenv==15.2.0
-Werkzeug==0.14.1
+werkzeug>=0.15.3
 xdiagnose==3.8.4.1
 xkit==0.0.0
 XlsxWriter==0.7.3
