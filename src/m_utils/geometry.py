@@ -72,6 +72,9 @@ def geometry_affinity(points_set, Fs, dimGroup):
     for cam_id0, h in enumerate ( range ( len ( dimGroup ) - 1 ) ):
         for cam_add, k in enumerate ( range ( cam_id0+1, len(dimGroup)-1 ) ):
             cam_id1 = cam_id0 + cam_add + 1
+            # if there is no one in some view, skip it!
+            if dimGroup[h] == dimGroup[h+1] or dimGroup[k] == dimGroup[k+1]:
+                continue
 
             pose_id0 = points_set[dimGroup[h]:dimGroup[h + 1]]
             pose_id1 = points_set[dimGroup[k]:dimGroup[k + 1]]
