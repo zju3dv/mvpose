@@ -122,4 +122,22 @@ If you find this code useful for your research, please use the following BibTeX 
 ## Acknowledgements
 This code uses these code ([Light head rcnn](https://github.com/zengarden/light_head_rcnn), [Cascaded Pyramid Network](https://github.com/chenyilun95/tf-cpn), [CamStyle](https://github.com/zhunzhong07/CamStyle)) as backbone. We gratefully appreciate the impact it had on our work. If you use our code, please consider citing the original paper as well.
 
+## Copyright
 
+This work is affliated with ZJU-SenseTime Joint Lab of 3D Vision, and its intellectual property belongs to SenseTime Group Ltd.
+
+```
+Copyright SenseTime. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
