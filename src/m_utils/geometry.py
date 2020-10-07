@@ -86,6 +86,9 @@ def geometry_affinity(points_set, Fs, dimGroup):
 
     end_time = time.time()
     # print('using %fs' % (end_time - start_time))
+    if distance_matrix.std() < 5:
+        for i in range(distance_matrix.shape[0]):
+            distance_matrix[i, i] = distance_matrix.mean()
 
     affinity_matrix = - (distance_matrix - distance_matrix.mean ()) / distance_matrix.std ()
     # TODO: add flexible factor
