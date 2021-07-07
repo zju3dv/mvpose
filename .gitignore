@@ -1,0 +1,13 @@
+__pycache__/
+.idea/
+.ipynb_checkpoints/
+*.py[cod]
+*.so
+*.orig
+*.o
+*.json
+*.pth
+*.npy
+*.ipynb
+/data/
+.DS_store
