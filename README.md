@@ -4,7 +4,7 @@
 
 > [Fast and Robust Multi-Person 3D Pose Estimation from Multiple Views](https://arxiv.org/pdf/1901.04111.pdf)  
 > Junting Dong, Wen Jiang, Qixing Huang, Hujun Bao, Xiaowei Zhou   
-> CVPR 2019 
+> CVPR 2019, T-PAMI 2021 
 > [Project Page](https://zju3dv.github.io/mvpose/)
 
 Any questions or discussions are welcomed!
@@ -112,11 +112,18 @@ Therefore, the size of `Campus_processed` is around `4.0G` and the size of `Shel
 If you find this code useful for your research, please use the following BibTeX entry.
 
 ```
-@article{dong2019fast,
+@inproceedings{dong2019fast,
   title={Fast and Robust Multi-Person 3D Pose Estimation from Multiple Views},
   author={Dong, Junting and Jiang, Wen and Huang, Qixing and Bao, Hujun and Zhou, Xiaowei},
   journal={CVPR},
   year={2019}
+}
+
+@article{dong2021fastpami,
+  title={Fast and Robust Multi-Person 3D Pose Estimation and Tracking from Multiple Views},
+  author={Dong, Junting and Fang, Qi and Jiang, Wen and Yang, Yurou and Bao, Hujun and Zhou, Xiaowei},
+  booktitle={T-PAMI},
+  year={2021}
 }
 ```
 ## Acknowledgements
